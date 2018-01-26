@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ClawGrab : MonoBehaviour {
 
+    //KOURA -VETÄÄ- SEN VALAAN LAIVAN SISÄÄN!!!
     public bool rotate = false;
 
     public float rotationSpeed = 5;
@@ -37,6 +38,7 @@ public class ClawGrab : MonoBehaviour {
             rotate = true;
             rotationTime = beginTime;
             collision.gameObject.tag = "Null";
+
         }
     }
 }
