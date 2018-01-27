@@ -32,18 +32,37 @@ public class Whale : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "SoundWave")
+        if (collision.gameObject.tag == "LittleSoundWave" && gameObject.tag == "KillerWhale")
         {
             Debug.Log("koskettaa");
+            towardsSound = true;
+        }
+
+        if (collision.gameObject.tag == "NormalSoundWave" && gameObject.tag == "Narwhal")
+        {
+            towardsSound = true;
+        }
+
+        if (collision.gameObject.tag == "BigSoundWave" && gameObject.tag == "BlueWhale")
+        {
             towardsSound = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "SoundWave")
+        if (collision.gameObject.tag == "LittleSoundWave")
         {
-            Debug.Log("ei kosketa enää");
+            towardsSound = false;
+        }
+
+        if (collision.gameObject.tag == "NormalSoundWave")
+        {
+            towardsSound = false;
+        }
+
+        if (collision.gameObject.tag == "BigSoundWave")
+        {
             towardsSound = false;
         }
     }

@@ -12,6 +12,9 @@ TagManager:
   - NullBlue
   - NullKiller
   - NullNar
+  - LittleSoundWave
+  - NormalSoundWave
+  - BigSoundWave
   layers:
   - Default
   - TransparentFX

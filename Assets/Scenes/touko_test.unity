@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 596365240}
   m_Layer: 0
   m_Name: Whale
-  m_TagString: Untagged
+  m_TagString: BlueWhale
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -314,9 +314,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a77ee045ab6944aac9feb2a264183a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundWave: {fileID: 1550943075527100, guid: e6ef0aae851725e428867aeb8357c020, type: 2}
+  littleSoundWave: {fileID: 1550943075527100, guid: 0a47ed06277dfb74cba32a519567151f,
+    type: 2}
+  normalSoundWave: {fileID: 1550943075527100, guid: e6ef0aae851725e428867aeb8357c020,
+    type: 2}
+  bigSoundWave: {fileID: 1550943075527100, guid: 44a3ef532b3217643831d4edf150562c,
+    type: 2}
   soundWaveSpeed: 100
   speed: 5
+  littleWave: 1
+  normalWave: 0
+  bigWave: 0
 --- !u!1 &1892238681
 GameObject:
   m_ObjectHideFlags: 0
