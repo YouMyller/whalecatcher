@@ -4,12 +4,22 @@ using UnityEngine;
 
 public class ClawGrab : MonoBehaviour {
 
-    //KOURA -VETÄÄ- SEN VALAAN LAIVAN SISÄÄN!!!
-    public bool rotate = false;
 
-    public float rotationSpeed = 5;
-    public float rotationTime;
-    public float beginTime;
+    public Transform target;
+    public Transform targetBack;
+    public Transform grabber;
+
+    public bool move = false;
+
+    public float moveSpeed = 5;
+    public float whaleGrabSpeed;
+    private float velocity;
+    private float whaleGrabVelocity;
+
+    private GameObject whale;
+   // public float moveTime;
+   
+    //public float beginTime;
 
 	// Use this for initialization
 	void Start () {
@@ -19,26 +29,36 @@ public class ClawGrab : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (rotate == true)
+        velocity = moveSpeed * Time.deltaTime;
+        whaleGrabVelocity = whaleGrabSpeed * Time.deltaTime;
+
+        if (move == true)
         {
-            rotationTime -= Time.deltaTime;
-            transform.Rotate(Vector3.forward * rotationSpeed);
-            //make the object rotate with the claw
-            if (rotationTime <= 0)
+            whale.transform.position = Vector3.MoveTowards(whale.transform.position, grabber.position, whaleGrabVelocity);
+
+            transform.position = Vector3.MoveTowards(transform.position, target.position, velocity);
+
+            if (transform.position == target.position)
             {
-                rotate = false;
+                move = false;
             }
         }
-	}
+
+        if (move == false)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, targetBack.position, velocity);
+            move = false;
+        }
+    }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "BlueWhale" || collision.gameObject.tag == "KillerWhale" || collision.gameObject.tag == "Narwhal")
         {
-            rotate = true;
-            rotationTime = beginTime;
+            move = true;
+            //moveTime = beginTime;
             collision.gameObject.tag = "Null";
-
+            whale = collision.gameObject;
         }
     }
 }
