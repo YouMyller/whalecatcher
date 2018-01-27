@@ -8,32 +8,58 @@ public class WhaleQuota : MonoBehaviour {
     public int whaleCount;
 
     public Text whaleCountUI;
-    //public Text deathMeterUI;
+    public Text deathMeterUI;
 
+    public Image deathBar;
+
+    public float deathMeterMax;
     private float deathMeter;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
-        deathMeter = 20;
+        //deathMeterMax = 20;
+        deathMeter = deathMeterMax;
         whaleCount = 0;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        //Mittari alkaa sadasta ja lähtee vähitellen laskemaan ajan kanssa. Joka kerta kun nappaat valaan, mittari saa vähän takaisin (mitä isompi valas, sen enemmän).
-        //Joka napatusta valaasta saa pisteen. Peli päättyy, kun mittari menee nollille. Game Over -screenissä näkyy napattujen valaiden määrä (pisteet).
-        deathMeter -= Time.deltaTime;
-        
+        float ratio = deathMeter / deathMeterMax;
 
+        deathMeter -= Time.deltaTime;
+
+        deathBar.rectTransform.localScale = new Vector3(ratio, 1, 1);
+        //deathMeterUI.text = (ratio * 100).ToString() + "%";
 	}
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Null")
+        if (collision.gameObject.tag == "NullBlue")
         {
             whaleCount += 1;
+            deathMeter += 20;
+            whaleCountUI.text = whaleCount.ToString();
+        }
+
+        if (collision.gameObject.tag == "NullKiller")
+        {
+            whaleCount += 1;
+            deathMeter += 10;
+            whaleCountUI.text = whaleCount.ToString();
+        }
+
+        if (collision.gameObject.tag == "NullNar")
+        {
+            whaleCount += 1;
+            deathMeter += 5;
+            whaleCountUI.text = whaleCount.ToString();
+        }
+
+        if (collision.gameObject.tag == "NullShark")
+        {
+            deathMeter -= 10;
             whaleCountUI.text = whaleCount.ToString();
         }
     }

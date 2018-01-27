@@ -14,7 +14,7 @@ public class NullWhaleKiller : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-	    if (gameObject.tag == "Null")
+	    if (gameObject.tag == "NullBlue" || gameObject.tag == "NullKiller" || gameObject.tag == "NullNar" || gameObject.tag == "NullShark") 
         {
             killTime -= Time.deltaTime;
         }

@@ -53,12 +53,32 @@ public class ClawGrab : MonoBehaviour {
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "BlueWhale" || collision.gameObject.tag == "KillerWhale" || collision.gameObject.tag == "Narwhal")
+        if (collision.gameObject.tag == "BlueWhale" || collision.gameObject.tag == "KillerWhale" || collision.gameObject.tag == "Narwhal" || collision.gameObject.tag == "SharkWhale")
         {
             move = true;
             //moveTime = beginTime;
-            collision.gameObject.tag = "Null";
+            if (collision.gameObject.tag == "BlueWhale")
+            {
+                collision.gameObject.tag = "NullBlue";
+            }
+            if (collision.gameObject.tag == "KillerWhale")
+            {
+                collision.gameObject.tag = "NullKiller";
+            }
+            if (collision.gameObject.tag == "Narwhal")
+            {
+                collision.gameObject.tag = "NullNar";
+            }
+            if (collision.gameObject.tag == "SharkWhale")
+            {
+                collision.gameObject.tag = "NullShark";
+            }
+
             whale = collision.gameObject;
+
+            //Collider whaleCollision = whale.GetComponent<Collider>();
+
+            //whaleCollision.isTrigger = true;
         }
     }
 }
