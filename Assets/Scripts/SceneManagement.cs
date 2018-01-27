@@ -20,7 +20,7 @@ public class SceneManagement : MonoBehaviour {
     {
         if (name == "Start")
         {
-            SceneManager.LoadScene("juuso_test");
+            SceneManager.LoadScene("MainScene");
         }
 
         else if (name == "Credits")

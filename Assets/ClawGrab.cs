@@ -57,6 +57,7 @@ public class ClawGrab : MonoBehaviour {
         {
             move = true;
             //moveTime = beginTime;
+            Debug.Log("Stuff happens, great!");
             if (collision.gameObject.tag == "BlueWhale")
             {
                 collision.gameObject.tag = "NullBlue";
