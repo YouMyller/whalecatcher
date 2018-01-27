@@ -141,6 +141,8 @@ MonoBehaviour:
   whale: {fileID: 596365239}
   moveSpeed: 5
   target: {fileID: 1670442838}
+  towardsSound: 0
+  slowedMoveSpeed: 0
 --- !u!212 &596365241
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -230,52 +232,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!1001 &1583577582
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4965632893090098, guid: 282ce066314beb04b9b75ea8248e9ac2, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -1.61
-      objectReference: {fileID: 0}
-    - target: {fileID: 4965632893090098, guid: 282ce066314beb04b9b75ea8248e9ac2, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4965632893090098, guid: 282ce066314beb04b9b75ea8248e9ac2, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4965632893090098, guid: 282ce066314beb04b9b75ea8248e9ac2, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4965632893090098, guid: 282ce066314beb04b9b75ea8248e9ac2, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4965632893090098, guid: 282ce066314beb04b9b75ea8248e9ac2, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4965632893090098, guid: 282ce066314beb04b9b75ea8248e9ac2, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4965632893090098, guid: 282ce066314beb04b9b75ea8248e9ac2, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1339202335069132, guid: 282ce066314beb04b9b75ea8248e9ac2, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 282ce066314beb04b9b75ea8248e9ac2, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1670442836
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,7 +301,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1670442839
 MonoBehaviour:
@@ -358,8 +314,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a77ee045ab6944aac9feb2a264183a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundWave: {fileID: 1339202335069132, guid: 282ce066314beb04b9b75ea8248e9ac2, type: 2}
+  soundWave: {fileID: 1550943075527100, guid: e6ef0aae851725e428867aeb8357c020, type: 2}
   soundWaveSpeed: 100
+  speed: 5
 --- !u!1 &1892238681
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class Whale : MonoBehaviour
     private float moveSpeed;
 
     public Transform target;
-    bool towardsSound = false;
+    public bool towardsSound = false;
     bool movespeedSlow = false;
     [SerializeField]
     private float slowedMoveSpeed;
@@ -30,12 +30,21 @@ public class Whale : MonoBehaviour
         Move();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "SoundWave")
         {
             Debug.Log("koskettaa");
             towardsSound = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "SoundWave")
+        {
+            Debug.Log("ei kosketa enää");
+            towardsSound = false;
         }
     }
 
@@ -50,10 +59,15 @@ public class Whale : MonoBehaviour
                 slowedMoveSpeed = moveSpeed - 2;
             }
 
+            /*Vector2 camPos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+            Vector2 myPos = new Vector2(transform.position.x, transform.position.y + 1);
+            Vector2 mouseTarget = camPos - myPos;
+            target.Normalize();*/
+
             transform.position = Vector3.MoveTowards(transform.position, target.position, slowedMoveSpeed * Time.deltaTime);
         }
 
-        else
+        if (towardsSound == false)
         {
             transform.position += Vector3.left * moveSpeed * Time.deltaTime;
         }
