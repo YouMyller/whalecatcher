@@ -7,6 +7,8 @@ public class Randomizer : MonoBehaviour {
     public float timer;
     public float timeToSpawn;
 
+    public Transform[] spawnPoints;
+
     public GameObject[] whales;
     public int blueWhales;
     public int narWhals;
@@ -39,7 +41,9 @@ public class Randomizer : MonoBehaviour {
         {
             if (beginning == true)
             {
-                Instantiate(whales[Random.Range(0, whales.Length)], transform.position, transform.rotation);
+                //Instantiate(whales[Random.Range(0, whales.Length)], transform.position, transform.rotation);
+                Transform spawn = spawnPoints[Random.Range(0,spawnPoints.Length)];
+                Instantiate(whales[Random.Range(0, whales.Length)], spawn.position, spawn.rotation);
                 timer = timeToSpawn;
             }
                 else
@@ -64,10 +68,6 @@ public class Randomizer : MonoBehaviour {
                     if (val == 3)
                     {
                         SharkCreate();
-                    }
-                    if (val == 4)
-                    {
-                        ObstacleCreate();
                     }
             }
         }
@@ -271,12 +271,6 @@ public class Randomizer : MonoBehaviour {
             Instantiate(whales[Random.Range(0, whales.Length)], transform.position, transform.rotation);
             timer = timeToSpawn;
         }
-    }
-
-    public void ObstacleCreate()
-    {
-        Instantiate(whales[4], transform.position, transform.rotation);
-        timer = timeToSpawn;
     }
 
     public void WhaleCount()
