@@ -10,25 +10,25 @@ public class PlayerController : MonoBehaviour
     public GameObject normalSoundWave;
     public GameObject bigSoundWave;
 
-    GameObject spawned;
-
     [SerializeField]
     private float soundWaveSpeed;
     [SerializeField]
     private float speed;
 
-    public bool littleWave = true;
-    public bool normalWave = false;
+    public bool littleWave = false;
+    public bool normalWave = true;
     public bool bigWave = false;
+
+    /*public float timerTime;
+    public float time = 10f;
+    */
+
+    public GameObject dial;
+    public Transform target;
 
     void Start()
     {
         whaleScript = GetComponent<Whale>();
-    }
-
-    private void FixedUpdate()
-    {
-        
     }
 
     void Update()
@@ -45,6 +45,12 @@ public class PlayerController : MonoBehaviour
                 GameObject spawned = (GameObject)Instantiate(littleSoundWave, transform.position, Quaternion.identity);
                 spawned.GetComponent<Rigidbody2D>().velocity = direction * 50;
 
+                /*timerTime = time + Time.deltaTime;
+                spawned.transform.localScale += new Vector3(0.1F, 100, 0);
+                spawned.transform.localScale += new Vector3(0.1F, 5, 0);
+                */
+
+                Destroy(spawned, 2);
             }
         }
         if (normalWave == true)
@@ -59,6 +65,7 @@ public class PlayerController : MonoBehaviour
                 GameObject spawned = (GameObject)Instantiate(normalSoundWave, transform.position, Quaternion.identity);
                 spawned.GetComponent<Rigidbody2D>().velocity = direction * 50;
 
+                Destroy(spawned, 2);
             }
         }
         if (bigWave == true)
@@ -73,6 +80,7 @@ public class PlayerController : MonoBehaviour
                 GameObject spawned = (GameObject)Instantiate(bigSoundWave, transform.position, Quaternion.identity);
                 spawned.GetComponent<Rigidbody2D>().velocity = direction * 50;
 
+                Destroy(spawned, 2);
             }
         }
         
@@ -83,13 +91,23 @@ public class PlayerController : MonoBehaviour
             {
                 bigWave = false;
                 normalWave = true;
+
+                /*
+                Vector3 targetDir = .position - transform.position;
+                float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg - 90f;
+                Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+                */
+
+                dial.transform.Rotate(Vector3.back * 90);
+
             }
             else if (normalWave == true)
             {
                 normalWave = false;
                 littleWave = true;
+
+                dial.transform.Rotate(Vector3.back * 90);
             }
-            
         }
 
         if (Input.GetKeyDown(KeyCode.Z))
@@ -98,11 +116,15 @@ public class PlayerController : MonoBehaviour
             {
                 littleWave = false;
                 normalWave = true;
+
+                dial.transform.Rotate(Vector3.forward * 90);
             }
             else if (normalWave == true)
             {
                 normalWave = false;
                 bigWave = true;
+
+                dial.transform.Rotate(Vector3.forward * 90);
             }
         }
     }
