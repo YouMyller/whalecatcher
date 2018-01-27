@@ -6,6 +6,8 @@ public class ObstacleSpawn : MonoBehaviour {
 
     public GameObject obstacle;
 
+    public Transform[] spawnPoints;
+
     public float timer;
     public float timeToSpawn;
 
@@ -22,7 +24,10 @@ public class ObstacleSpawn : MonoBehaviour {
 
         if (timer <= 0)
         {
-            Instantiate(obstacle, transform.position, transform.rotation);
+            Transform spawn = spawnPoints[Random.Range(0, spawnPoints.Length)];
+
+            Instantiate(obstacle, spawn.position, spawn.rotation);
+
             timer = timeToSpawn;
         }
     }

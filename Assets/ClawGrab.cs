@@ -16,13 +16,19 @@ public class ClawGrab : MonoBehaviour {
     private float whaleGrabVelocity;
 
     private GameObject whale;
+    public GameObject claw;
+
+    public Sprite normalSprite;
+    public Sprite grabbingSprite;
+
    // public float moveTime;
    
     //public float beginTime;
 
 	// Use this for initialization
-	void Start () {
-		
+	void Start ()
+    {
+        claw.GetComponent<SpriteRenderer>().sprite = normalSprite;
 	}
 	
 	// Update is called once per frame
@@ -33,6 +39,8 @@ public class ClawGrab : MonoBehaviour {
 
         if (move == true)
         {
+            claw.GetComponent<SpriteRenderer>().sprite = grabbingSprite;
+
             whale.transform.position = Vector3.MoveTowards(whale.transform.position, grabber.position, whaleGrabVelocity);
 
             transform.position = Vector3.MoveTowards(transform.position, target.position, velocity);
@@ -45,6 +53,7 @@ public class ClawGrab : MonoBehaviour {
 
         if (move == false)
         {
+            claw.GetComponent<SpriteRenderer>().sprite = normalSprite;
             transform.position = Vector3.MoveTowards(transform.position, targetBack.position, velocity);
             move = false;
         }
