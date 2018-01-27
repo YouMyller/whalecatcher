@@ -7,13 +7,13 @@ public class Whale : MonoBehaviour
     public GameObject whale;
 
     [SerializeField]
-    private float moveSpeed;
+    public float moveSpeed;
 
     public Transform target;
     public bool towardsSound = false;
     bool movespeedSlow = false;
     [SerializeField]
-    private float slowedMoveSpeed;
+    public float slowedMoveSpeed;
 
     void Start()
     {

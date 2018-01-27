@@ -13,12 +13,11 @@ public class WhaleQuota : MonoBehaviour {
     public Image deathBar;
 
     public float deathMeterMax;
-    private float deathMeter;
+    public float deathMeter;
 
     // Use this for initialization
     void Start ()
     {
-        //deathMeterMax = 20;
         deathMeter = deathMeterMax;
         whaleCount = 0;
 	}
