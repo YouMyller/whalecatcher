@@ -11,6 +11,9 @@ public class Whale : MonoBehaviour
 
     public Transform target;
     bool towardsSound = false;
+    bool movespeedSlow = false;
+    [SerializeField]
+    private float slowedMoveSpeed;
 
     void Start()
     {
@@ -40,7 +43,14 @@ public class Whale : MonoBehaviour
     {
         if (towardsSound == true)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed* Time.deltaTime);
+            movespeedSlow = true;
+
+            if (movespeedSlow == true)
+            {
+                slowedMoveSpeed = moveSpeed - 2;
+            }
+
+            transform.position = Vector3.MoveTowards(transform.position, target.position, slowedMoveSpeed * Time.deltaTime);
         }
 
         else
