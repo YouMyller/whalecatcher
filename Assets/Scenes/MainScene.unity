@@ -357,7 +357,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a07827296990efb41b4347d2d6c87cd1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.94
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a07827296990efb41b4347d2d6c87cd1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1533,11 +1533,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4758253721645370, guid: 12c2c24c657767a499f7425e5c1930fa, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -9.46
+      value: 17.07
       objectReference: {fileID: 0}
     - target: {fileID: 4758253721645370, guid: 12c2c24c657767a499f7425e5c1930fa, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 4.66
+      value: -1.9
       objectReference: {fileID: 0}
     - target: {fileID: 4758253721645370, guid: 12c2c24c657767a499f7425e5c1930fa, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1600,6 +1600,41 @@ Prefab:
     - target: {fileID: 4758253721645370, guid: 12c2c24c657767a499f7425e5c1930fa, type: 2}
       propertyPath: m_LocalScale.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 61546720613965542, guid: 12c2c24c657767a499f7425e5c1930fa,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: -0.11152363
+      objectReference: {fileID: 0}
+    - target: {fileID: 61546720613965542, guid: 12c2c24c657767a499f7425e5c1930fa,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 6.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 61546720613965542, guid: 12c2c24c657767a499f7425e5c1930fa,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 61546720613965542, guid: 12c2c24c657767a499f7425e5c1930fa,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 6.613352
+      objectReference: {fileID: 0}
+    - target: {fileID: 61546720613965542, guid: 12c2c24c657767a499f7425e5c1930fa,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: -0.009293675
+      objectReference: {fileID: 0}
+    - target: {fileID: 61546720613965542, guid: 12c2c24c657767a499f7425e5c1930fa,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 1.8736002
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602839632201634, guid: 12c2c24c657767a499f7425e5c1930fa,
+        type: 2}
+      propertyPath: speedDivider
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 61645234889733262, guid: 12c2c24c657767a499f7425e5c1930fa, type: 2}
@@ -2028,9 +2063,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a77ee045ab6944aac9feb2a264183a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundWave: {fileID: 1550943075527100, guid: e6ef0aae851725e428867aeb8357c020, type: 2}
+  littleSoundWave: {fileID: 1550943075527100, guid: 0a47ed06277dfb74cba32a519567151f,
+    type: 2}
+  normalSoundWave: {fileID: 1550943075527100, guid: e6ef0aae851725e428867aeb8357c020,
+    type: 2}
+  bigSoundWave: {fileID: 1550943075527100, guid: 44a3ef532b3217643831d4edf150562c,
+    type: 2}
   soundWaveSpeed: 0
   speed: 0
+  littleWave: 1
+  normalWave: 0
+  bigWave: 0
 --- !u!114 &1370436152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2310,11 +2353,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf5175ab538323d44ba3e7bf4d24ed64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whale: {fileID: 1783268097}
   moveSpeed: 3
   target: {fileID: 1370436150}
   towardsSound: 0
   slowedMoveSpeed: 0
+  speedDivider: 0
 --- !u!114 &1783268099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2363,7 +2406,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.37220287, y: 4.915551}
+  m_Offset: {x: 0.37220287, y: 4.1403494}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2374,7 +2417,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.75926065, y: 2.1133327}
+  m_Size: {x: 0.75926065, y: 2.0221357}
   m_EdgeRadius: 0
 --- !u!212 &1813107685
 SpriteRenderer:
@@ -2424,7 +2467,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1813107683}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.87, y: 2.69, z: -1}
+  m_LocalPosition: {x: -3.87, y: -18.51, z: -1}
   m_LocalScale: {x: 13.740514, y: 0.5374994, z: 1}
   m_Children:
   - {fileID: 1783268103}
@@ -2454,11 +2497,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf5175ab538323d44ba3e7bf4d24ed64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whale: {fileID: 1813107683}
   moveSpeed: 3
   target: {fileID: 1370436150}
   towardsSound: 0
   slowedMoveSpeed: 0
+  speedDivider: 2
 --- !u!50 &1813107689
 Rigidbody2D:
   serializedVersion: 4
@@ -2605,9 +2648,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a77ee045ab6944aac9feb2a264183a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundWave: {fileID: 1550943075527100, guid: e6ef0aae851725e428867aeb8357c020, type: 2}
+  littleSoundWave: {fileID: 0}
+  normalSoundWave: {fileID: 0}
+  bigSoundWave: {fileID: 0}
   soundWaveSpeed: 0
   speed: 0
+  littleWave: 1
+  normalWave: 0
+  bigWave: 0
 --- !u!1 &1953124578
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class Whale : MonoBehaviour
 {
-    public GameObject whale;
-
-    [SerializeField]
     public float moveSpeed;
 
     public Transform target;
     public bool towardsSound = false;
     bool movespeedSlow = false;
-    [SerializeField]
     public float slowedMoveSpeed;
+    [SerializeField]
+    float speedDivider;
 
     void Start()
     {
@@ -75,7 +73,18 @@ public class Whale : MonoBehaviour
 
             if (movespeedSlow == true)
             {
-                slowedMoveSpeed = moveSpeed - 2;
+                if (gameObject.tag == "Narwhal")
+                {
+                    slowedMoveSpeed = moveSpeed - moveSpeed / speedDivider;
+                }
+                if (gameObject.tag == "KillerWhale")
+                {
+                    slowedMoveSpeed = moveSpeed - moveSpeed / speedDivider;
+                }
+                if (gameObject.tag == "BlueWhale")
+                {
+                    slowedMoveSpeed = moveSpeed / speedDivider;
+                }
             }
 
             /*Vector2 camPos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
