@@ -28,6 +28,10 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        littleWave = false;
+        normalWave = true;
+        bigWave = false;
+
         whaleScript = GetComponent<Whale>();
     }
 
@@ -83,7 +87,7 @@ public class PlayerController : MonoBehaviour
                 Destroy(spawned, 2);
             }
         }
-        
+
 
         if (Input.GetKeyDown(KeyCode.X))
         {
