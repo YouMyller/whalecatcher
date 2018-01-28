@@ -92,7 +92,14 @@ public class Whale : MonoBehaviour
             Vector2 mouseTarget = camPos - myPos;
             target.Normalize();*/
 
+            Vector2 targetDir = target.transform.position - transform.position;
+            float rotVelocity = moveSpeed * Time.deltaTime;
+            float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg;
+            //Vector2 newDir = Vector3.RotateTowards(-transform.right, targetDir, rotVelocity, 0.0F);
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
             transform.position = Vector3.MoveTowards(transform.position, target.position, slowedMoveSpeed * Time.deltaTime);
+            //transform.LookAt(target);
         }
 
         if (towardsSound == false)
