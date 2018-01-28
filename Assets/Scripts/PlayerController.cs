@@ -52,6 +52,22 @@ public class PlayerController : MonoBehaviour
                 Vector2 direction = cameraPos - myPos;
                 direction.Normalize();
 
+                if (!soundSound.isPlaying && Input.GetMouseButton(0))
+                {
+                    soundSound.Play();
+                    soundSound.pitch = 1.1f;
+                }
+
+                /*else if (bigWave == true && Input.GetMouseButton(0))
+                {
+                    soundSound.pitch = .8f;
+                }
+
+                else if (normalWave == true && Input.GetMouseButton(0))
+                {
+                    soundSound.pitch = 1;
+                }*/
+
                 GameObject spawned = (GameObject)Instantiate(littleSoundWave, shootPoint.position, Quaternion.identity);
                 spawned.GetComponent<Rigidbody2D>().velocity = direction * 50;
 
@@ -75,7 +91,18 @@ public class PlayerController : MonoBehaviour
                 if (!soundSound.isPlaying && Input.GetMouseButton(0))
                 {
                     soundSound.Play();
+                    soundSound.pitch = 1;
                 }
+
+                /*else if (bigWave == true && Input.GetMouseButton(0))
+                {
+                    soundSound.pitch = .8f;
+                }
+
+                else if (littleWave == true && Input.GetMouseButton(0))
+                {
+                    soundSound.pitch = 1.5f;
+                }*/
 
                 GameObject spawned = (GameObject)Instantiate(normalSoundWave, shootPoint.position, Quaternion.identity);
                 spawned.GetComponent<Rigidbody2D>().velocity = direction * 50;
@@ -92,6 +119,20 @@ public class PlayerController : MonoBehaviour
                 Vector2 direction = cameraPos - myPos;
                 direction.Normalize();
 
+                if (!soundSound.isPlaying && Input.GetMouseButton(0))
+                {
+                    soundSound.Play();
+                    soundSound.pitch = .8f;
+                }
+                /*else if (normalWave == true && Input.GetMouseButton(0))
+                {
+                    soundSound.pitch = 1;
+                }
+                else if (littleWave == true && Input.GetMouseButton(0))
+                {
+                    soundSound.pitch = 1.5f;
+                }
+                */
                 GameObject spawned = (GameObject)Instantiate(bigSoundWave, shootPoint.position, transform.rotation);
                 spawned.GetComponent<Rigidbody2D>().velocity = direction * 50;
 
@@ -129,6 +170,7 @@ public class PlayerController : MonoBehaviour
                 if (littleWave == true)
                 {
                     clickSound.Play();
+                    soundSound.pitch = 1.1f;
                 }
 
                 dial.transform.Rotate(Vector3.back * 90);
@@ -145,6 +187,7 @@ public class PlayerController : MonoBehaviour
                 if (normalWave == true)
                 {
                     clickSound.Play();
+                    soundSound.pitch = 1;
                 }
 
                 dial.transform.Rotate(Vector3.forward * 90);
@@ -157,6 +200,7 @@ public class PlayerController : MonoBehaviour
                 if (bigWave == true)
                 {
                     clickSound.Play();
+                    soundSound.pitch = .8f;
                 }
 
                 dial.transform.Rotate(Vector3.forward * 90);
