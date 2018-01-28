@@ -6,6 +6,7 @@ public class ObstacleMovement : MonoBehaviour {
 
     public float[] moveSpeeds;
     public float currentSpeed;
+    public float deathTimer;
 
 	// Use this for initialization
 	void Start ()
@@ -16,6 +17,13 @@ public class ObstacleMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        deathTimer -= Time.deltaTime;
+
         transform.position += Vector3.left * currentSpeed * Time.deltaTime;
+
+        /*if (deathTimer <= 0)
+        {
+            Destroy(gameObject);
+        }*/
     }
 }

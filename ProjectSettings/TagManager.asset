@@ -15,6 +15,7 @@ TagManager:
   - LittleSoundWave
   - NormalSoundWave
   - BigSoundWave
+  - Boat
   layers:
   - Default
   - TransparentFX

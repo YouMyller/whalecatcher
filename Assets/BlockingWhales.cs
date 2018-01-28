@@ -7,9 +7,10 @@ public class BlockingWhales : MonoBehaviour {
     //Kun valas osuu esteeseen, este muuttaa valaan 
 
     private Whale whaleScript;
-    public WhaleQuota whaleQuotaScript;
+    private WhaleQuota whaleQuotaScript;
 
     private GameObject collidedWhale;
+    private GameObject boat;
 
     private float stunTimeRunning;
     public float stunTime;
@@ -23,6 +24,8 @@ public class BlockingWhales : MonoBehaviour {
     {
         enabledMov = true;
         stunTimeRunning = stunTime;
+        boat = GameObject.FindWithTag("Boat");
+        whaleQuotaScript = boat.GetComponent<WhaleQuota>();
 	}
 	
 	// Update is called once per frame
