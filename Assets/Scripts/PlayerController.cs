@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     public Transform target;
 
     public AudioSource clickSound;
+    public AudioSource soundSound;
 
     void Start()
     {
@@ -37,6 +38,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetMouseButtonUp(0))
+        {
+            soundSound.Stop();
+        }
+
         if (littleWave == true)
         {
             if (Input.GetMouseButton(0))
@@ -65,6 +71,11 @@ public class PlayerController : MonoBehaviour
                 Vector2 myPos = new Vector2(transform.position.x, transform.position.y + 1);
                 Vector2 direction = cameraPos - myPos;
                 direction.Normalize();
+
+                if (!soundSound.isPlaying && Input.GetMouseButton(0))
+                {
+                    soundSound.Play();
+                }
 
                 GameObject spawned = (GameObject)Instantiate(normalSoundWave, shootPoint.position, Quaternion.identity);
                 spawned.GetComponent<Rigidbody2D>().velocity = direction * 50;

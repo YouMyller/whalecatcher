@@ -26,12 +26,15 @@ public class WhaleQuota : MonoBehaviour {
     public int narToDeathMeter;
     public int killerToDeathMeter;
 
+    private float maxPoints;
+
     // Use this for initialization
     void Start ()
     {
         deathMeter = deathMeterMax;
         whaleCount = 0;
-	}
+        whaleCountUI.text = ("Points: " + whaleCount.ToString());
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -64,7 +67,12 @@ public class WhaleQuota : MonoBehaviour {
             deathMeter += blueToDeathMeter;
             whalesNumber += 1;
 
-            whaleCountUI.text = whaleCount.ToString();
+            if (deathMeter > 100)
+            {
+                deathMeter = 100;
+            }
+
+            whaleCountUI.text = ("Points: " + whaleCount.ToString());
         }
 
         if (collision.gameObject.tag == "NullKiller")
@@ -73,7 +81,12 @@ public class WhaleQuota : MonoBehaviour {
             deathMeter += killerToDeathMeter;
             whalesNumber += 1;
 
-            whaleCountUI.text = whaleCount.ToString();
+            if (deathMeter > 100)
+            {
+                deathMeter = 100;
+            }
+
+            whaleCountUI.text = ("Points: " + whaleCount.ToString());
         }
 
         if (collision.gameObject.tag == "NullNar")
@@ -82,7 +95,12 @@ public class WhaleQuota : MonoBehaviour {
             deathMeter += narToDeathMeter;
             whalesNumber += 1;
 
-            whaleCountUI.text = whaleCount.ToString();
+            if (deathMeter > 100)
+            {
+                deathMeter = 100;
+            }
+
+            whaleCountUI.text = ("Points: " + whaleCount.ToString());
         }
 
         /*if (collision.gameObject.tag == "NullShark")
