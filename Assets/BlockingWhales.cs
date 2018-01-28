@@ -62,6 +62,11 @@ public class BlockingWhales : MonoBehaviour {
     {
         if (collision.gameObject.tag == "BlueWhale" || collision.gameObject.tag == "KillerWhale" || collision.gameObject.tag == "Narwhal" || collision.gameObject.tag == "SharkWhale")
         {
+            if (!hitSound.isPlaying)
+            {
+                hitSound.Play();
+            }
+
             whaleQuotaScript.deathMeter -= meterDamage;
 
             collidedWhale = collision.gameObject;

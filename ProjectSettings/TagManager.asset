@@ -16,6 +16,7 @@ TagManager:
   - NormalSoundWave
   - BigSoundWave
   - Boat
+  - Rotator
   layers:
   - Default
   - TransparentFX

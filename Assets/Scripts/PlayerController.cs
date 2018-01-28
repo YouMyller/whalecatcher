@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     public bool normalWave = true;
     public bool bigWave = false;
 
+    public Transform shootPoint;
+
     /*public float timerTime;
     public float time = 10f;
     */
@@ -44,7 +46,7 @@ public class PlayerController : MonoBehaviour
                 Vector2 direction = cameraPos - myPos;
                 direction.Normalize();
 
-                GameObject spawned = (GameObject)Instantiate(littleSoundWave, transform.position, Quaternion.identity);
+                GameObject spawned = (GameObject)Instantiate(littleSoundWave, shootPoint.position, Quaternion.identity);
                 spawned.GetComponent<Rigidbody2D>().velocity = direction * 50;
 
                 /*timerTime = time + Time.deltaTime;
@@ -64,7 +66,7 @@ public class PlayerController : MonoBehaviour
                 Vector2 direction = cameraPos - myPos;
                 direction.Normalize();
 
-                GameObject spawned = (GameObject)Instantiate(normalSoundWave, transform.position, Quaternion.identity);
+                GameObject spawned = (GameObject)Instantiate(normalSoundWave, shootPoint.position, Quaternion.identity);
                 spawned.GetComponent<Rigidbody2D>().velocity = direction * 50;
 
                 Destroy(spawned, 2);
@@ -79,7 +81,7 @@ public class PlayerController : MonoBehaviour
                 Vector2 direction = cameraPos - myPos;
                 direction.Normalize();
 
-                GameObject spawned = (GameObject)Instantiate(bigSoundWave, transform.position, Quaternion.identity);
+                GameObject spawned = (GameObject)Instantiate(bigSoundWave, shootPoint.position, transform.rotation);
                 spawned.GetComponent<Rigidbody2D>().velocity = direction * 50;
 
                 Destroy(spawned, 2);

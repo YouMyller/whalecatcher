@@ -22,7 +22,9 @@ public class WhaleQuota : MonoBehaviour {
     public float deathMeterMax;
     public float deathMeter;
 
-    public int whaleToDeathMeter;
+    public int blueToDeathMeter;
+    public int narToDeathMeter;
+    public int killerToDeathMeter;
 
     // Use this for initialization
     void Start ()
@@ -59,7 +61,7 @@ public class WhaleQuota : MonoBehaviour {
         if (collision.gameObject.tag == "NullBlue")
         {
             whaleCount += 1000;
-            deathMeter += whaleToDeathMeter;
+            deathMeter += blueToDeathMeter;
             whalesNumber += 1;
 
             whaleCountUI.text = whaleCount.ToString();
@@ -68,7 +70,7 @@ public class WhaleQuota : MonoBehaviour {
         if (collision.gameObject.tag == "NullKiller")
         {
             whaleCount += 200;
-            deathMeter += whaleToDeathMeter;
+            deathMeter += killerToDeathMeter;
             whalesNumber += 1;
 
             whaleCountUI.text = whaleCount.ToString();
@@ -77,7 +79,7 @@ public class WhaleQuota : MonoBehaviour {
         if (collision.gameObject.tag == "NullNar")
         {
             whaleCount += 500;
-            deathMeter += whaleToDeathMeter;
+            deathMeter += narToDeathMeter;
             whalesNumber += 1;
 
             whaleCountUI.text = whaleCount.ToString();
