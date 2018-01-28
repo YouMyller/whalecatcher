@@ -21,12 +21,15 @@ public class ClawGrab : MonoBehaviour {
     public Sprite normalSprite;
     public Sprite grabbingSprite;
 
-   // public float moveTime;
-   
+    public GameObject soundManager;
+    public AudioSource sound;
+
+    // public float moveTime;
+
     //public float beginTime;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         claw.GetComponent<SpriteRenderer>().sprite = normalSprite;
 	}

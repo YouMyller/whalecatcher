@@ -12,10 +12,12 @@ public class Whale : MonoBehaviour
     public float slowedMoveSpeed;
     [SerializeField]
     float speedDivider;
+    Quaternion ogRotation;
+    float rotTime;
 
     void Start()
     {
-
+        ogRotation = transform.rotation;
     }
 
     void Update()
@@ -52,16 +54,19 @@ public class Whale : MonoBehaviour
         if (collision.gameObject.tag == "LittleSoundWave")
         {
             towardsSound = false;
+            rotTime = .1f;
         }
 
         if (collision.gameObject.tag == "NormalSoundWave")
         {
             towardsSound = false;
+            rotTime = .1f;
         }
 
         if (collision.gameObject.tag == "BigSoundWave")
         {
             towardsSound = false;
+            rotTime = .1f;
         }
     }
 
@@ -93,8 +98,8 @@ public class Whale : MonoBehaviour
             target.Normalize();*/
 
             Vector2 targetDir = target.transform.position - transform.position;
-            float rotVelocity = moveSpeed * Time.deltaTime;
-            float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg;
+            //float rotVelocity = moveSpeed * Time.deltaTime;
+            float angle = Mathf.Atan2(-targetDir.y, -targetDir.x) * Mathf.Rad2Deg;
             //Vector2 newDir = Vector3.RotateTowards(-transform.right, targetDir, rotVelocity, 0.0F);
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
@@ -104,7 +109,13 @@ public class Whale : MonoBehaviour
 
         if (towardsSound == false)
         {
+            rotTime -= Time.deltaTime;
             transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+
+            if (rotTime <= 0)
+            {
+                transform.rotation = ogRotation;
+            }
         }
         
     }
