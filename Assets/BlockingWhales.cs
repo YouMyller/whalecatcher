@@ -19,6 +19,8 @@ public class BlockingWhales : MonoBehaviour {
 
     private Rigidbody2D rb;
 
+    public float meterDamage;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -58,7 +60,7 @@ public class BlockingWhales : MonoBehaviour {
     {
         if (collision.gameObject.tag == "BlueWhale" || collision.gameObject.tag == "KillerWhale" || collision.gameObject.tag == "Narwhal" || collision.gameObject.tag == "SharkWhale")
         {
-            whaleQuotaScript.deathMeter -= 5;
+            whaleQuotaScript.deathMeter -= meterDamage;
 
             collidedWhale = collision.gameObject;
 

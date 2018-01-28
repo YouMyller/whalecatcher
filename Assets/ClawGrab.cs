@@ -21,8 +21,8 @@ public class ClawGrab : MonoBehaviour {
     public Sprite normalSprite;
     public Sprite grabbingSprite;
 
-    public GameObject soundManager;
-    public AudioSource sound;
+    public AudioSource grabSound;
+    public float grabSoundTime;
 
     // public float moveTime;
 
@@ -48,6 +48,14 @@ public class ClawGrab : MonoBehaviour {
 
             transform.position = Vector3.MoveTowards(transform.position, target.position, velocity);
 
+            grabSoundTime -= Time.deltaTime;
+
+            if (!grabSound.isPlaying && grabSoundTime <= 0)
+            {
+                grabSound.Play();
+                grabSoundTime = 2;
+            }
+
             if (transform.position == target.position)
             {
                 move = false;
@@ -56,6 +64,7 @@ public class ClawGrab : MonoBehaviour {
 
         if (move == false)
         {
+            grabSoundTime = 0;
             claw.GetComponent<SpriteRenderer>().sprite = normalSprite;
             transform.position = Vector3.MoveTowards(transform.position, targetBack.position, velocity);
             move = false;
