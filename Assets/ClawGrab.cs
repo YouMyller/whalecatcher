@@ -22,6 +22,9 @@ public class ClawGrab : MonoBehaviour {
     public Sprite grabbingSprite;
 
     public AudioSource grabSound;
+    public GameObject clawMoveSoundPlayer;
+    private ClawMoveSound clawMoveSound;
+    private AudioSource moveSoundSource;
     public float grabSoundTime;
 
     // public float moveTime;
@@ -32,6 +35,8 @@ public class ClawGrab : MonoBehaviour {
     void Start ()
     {
         claw.GetComponent<SpriteRenderer>().sprite = normalSprite;
+        clawMoveSound = clawMoveSoundPlayer.GetComponent<ClawMoveSound>();
+        moveSoundSource = clawMoveSound.movingSound;
 	}
 	
 	// Update is called once per frame
@@ -42,6 +47,8 @@ public class ClawGrab : MonoBehaviour {
 
         if (move == true)
         {
+            clawMoveSound.movingSound.Play();
+
             claw.GetComponent<SpriteRenderer>().sprite = grabbingSprite;
 
             whale.transform.position = Vector3.MoveTowards(whale.transform.position, grabber.position, whaleGrabVelocity);

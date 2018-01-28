@@ -12,7 +12,6 @@ public class Randomizer : MonoBehaviour {
     public GameObject[] whales;
     public int blueWhales;
     public int narWhals;
-    //public int sharkWhales;
     public int killerWhales;
     public int all;
 
@@ -20,7 +19,6 @@ public class Randomizer : MonoBehaviour {
     private bool dontSpawnBlue = false;
     private bool dontSpawnNarwhal = false;
     private bool dontSpawnKiller = false;
-    //private bool dontSpawnShark = false;
     private bool pleaseStop = false;
 
     // Use this for initialization
@@ -65,11 +63,6 @@ public class Randomizer : MonoBehaviour {
                     {
                         KillerCreate();
                     }
-
-                    /*if (val == 3)
-                    {
-                        SharkCreate();
-                    }*/
             }
         }
     }
@@ -111,18 +104,6 @@ public class Randomizer : MonoBehaviour {
             Instantiate(whales[val], spawn.position, spawn.rotation);
             timer = timeToSpawn;
         }
-        /*else if (dontSpawnShark == true)
-        {
-            int val = Random.Range(0, whales.Length);
-
-            if (val == 3)
-            {
-                val -= 1;
-            }
-
-            Instantiate(whales[val], transform.position, transform.rotation);
-            timer = timeToSpawn;
-        }*/
         else
         {
             Transform spawn = spawnPoints[Random.Range(0, spawnPoints.Length)];
@@ -169,18 +150,6 @@ public class Randomizer : MonoBehaviour {
             Instantiate(whales[val], spawn.position, spawn.rotation);
             timer = timeToSpawn;
         }
-        /*else if (dontSpawnShark == true)
-        {
-            int val = Random.Range(0, whales.Length);
-
-            if (val == 3)
-            {
-                val -= 1;
-            }
-
-            Instantiate(whales[val], transform.position, transform.rotation);
-            timer = timeToSpawn;
-        }*/
         else
         {
             Transform spawn = spawnPoints[Random.Range(0, spawnPoints.Length)];
@@ -227,18 +196,6 @@ public class Randomizer : MonoBehaviour {
 
             timer = timeToSpawn;
         }
-        /*else if (dontSpawnShark == true)
-        {
-            int val = Random.Range(0, whales.Length);
-
-            if (val == 3)
-            {
-                val -= 1;
-            }
-
-            Instantiate(whales[val], transform.position, transform.rotation);
-            timer = timeToSpawn;
-        }*/
         else
         {
             Transform spawn = spawnPoints[Random.Range(0, spawnPoints.Length)];
@@ -248,64 +205,14 @@ public class Randomizer : MonoBehaviour {
         }
     }
 
-    /*public void SharkCreate()
-    {
-        if (dontSpawnShark == true)
-        {
-            int val = Random.Range(0, whales.Length);
-
-            if (val == 3)
-            {
-                val -= 1;
-            }
-
-            Instantiate(whales[val], transform.position, transform.rotation);
-            timer = timeToSpawn;
-        }
-        else if (dontSpawnKiller == true)
-        {
-            int val = Random.Range(0, whales.Length);
-
-            if (val == 2)
-            {
-                val += 1;
-            }
-
-            Instantiate(whales[val], transform.position, transform.rotation);
-            timer = timeToSpawn;
-        }
-        else if (dontSpawnNarwhal == true)
-        {
-            int val = Random.Range(0, whales.Length);
-
-            if (val == 1)
-            {
-                val += 1;
-            }
-
-            Instantiate(whales[val], transform.position, transform.rotation);
-            timer = timeToSpawn;
-        }
-        else if (dontSpawnBlue == true)
-        {
-            Instantiate(whales[Random.Range(1, whales.Length)], transform.position, transform.rotation);
-            timer = timeToSpawn;
-        }
-        else
-        {
-            Instantiate(whales[Random.Range(0, whales.Length)], transform.position, transform.rotation);
-            timer = timeToSpawn;
-        }
-    }*/
 
     public void WhaleCount()
     {
         blueWhales = GameObject.FindGameObjectsWithTag("BlueWhale").Length;
         narWhals = GameObject.FindGameObjectsWithTag("Narwhal").Length;
-        //sharkWhales = GameObject.FindGameObjectsWithTag("SharkWhale").Length;
         killerWhales = GameObject.FindGameObjectsWithTag("KillerWhale").Length;
 
-        all = blueWhales + narWhals + killerWhales; //+ sharkWhales
+        all = blueWhales + narWhals + killerWhales;
 
         if (blueWhales >= 2)
         {
@@ -322,11 +229,6 @@ public class Randomizer : MonoBehaviour {
             beginning = false;
             dontSpawnKiller = true;
         }
-        /*if (sharkWhales >= 1)
-        {
-            beginning = false;
-            dontSpawnShark = true;
-        }*/
         if (all <= 15)
         {
             beginning = false;
