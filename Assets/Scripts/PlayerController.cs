@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     public GameObject dial;
     public Transform target;
 
+    public AudioSource clickSound;
+
     void Start()
     {
         whaleScript = GetComponent<Whale>();
@@ -92,6 +94,11 @@ public class PlayerController : MonoBehaviour
                 bigWave = false;
                 normalWave = true;
 
+                if (normalWave == true)
+                {
+                    clickSound.Play();
+                }
+
                 /*
                 Vector3 targetDir = .position - transform.position;
                 float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg - 90f;
@@ -106,6 +113,11 @@ public class PlayerController : MonoBehaviour
                 normalWave = false;
                 littleWave = true;
 
+                if (littleWave == true)
+                {
+                    clickSound.Play();
+                }
+
                 dial.transform.Rotate(Vector3.back * 90);
             }
         }
@@ -117,12 +129,22 @@ public class PlayerController : MonoBehaviour
                 littleWave = false;
                 normalWave = true;
 
+                if (normalWave == true)
+                {
+                    clickSound.Play();
+                }
+
                 dial.transform.Rotate(Vector3.forward * 90);
             }
             else if (normalWave == true)
             {
                 normalWave = false;
                 bigWave = true;
+
+                if (bigWave == true)
+                {
+                    clickSound.Play();
+                }
 
                 dial.transform.Rotate(Vector3.forward * 90);
             }

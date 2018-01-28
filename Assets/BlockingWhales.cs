@@ -21,6 +21,8 @@ public class BlockingWhales : MonoBehaviour {
 
     public float meterDamage;
 
+    public AudioSource hitSound;
+
 	// Use this for initialization
 	void Start ()
     {

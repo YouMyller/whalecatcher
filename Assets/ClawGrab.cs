@@ -47,7 +47,10 @@ public class ClawGrab : MonoBehaviour {
 
         if (move == true)
         {
-            clawMoveSound.movingSound.Play();
+            if (!clawMoveSound.movingSound.isPlaying)
+            {
+                clawMoveSound.movingSound.Play();
+            }
 
             claw.GetComponent<SpriteRenderer>().sprite = grabbingSprite;
 
